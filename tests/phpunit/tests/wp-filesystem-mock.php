@@ -793,13 +793,16 @@ class WP_Filesystem_Mock_Test extends PHPUnit_Framework_TestCase {
 	 * Test getting a list of files.
 	 *
 	 * @since 0.1.0
-	 *
-	 * @expectedException        Exception
-	 * @expectedExceptionMessage WP_Filesystem_Mock::dirlist is not implemented yet.
 	 */
 	public function test_dirlist() {
 
-		$this->fs->dirlist( '/test' );
+		// See https://github.com/sebastianbergmann/phpunit/issues/454#issuecomment-32171137
+		try {
+			$this->fs->dirlist( '/test' );
+			throw new Exception( 'Failed asserting that an exception was thrown.' );
+		} catch ( Exception $e ) {
+			$this->assertEquals( 'WP_Filesystem_Mock::dirlist is not implemented yet.', $e->getMessage() );
+		}
 	}
 }
 
