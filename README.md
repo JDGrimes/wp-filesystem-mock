@@ -1,4 +1,4 @@
-# WP Filesystem Mock
+# WP Filesystem Mock [![Build Status](https://travis-ci.org/JDGrimes/wp-filesystem-mock.svg?branch=master)](https://travis-ci.org/JDGrimes/wp-filesystem-mock)
 
 Provides a class that can be used as a mock filesystem, and also a shim for the 
 WordPress filesystem API that uses it. This is useful in unit tests that include
