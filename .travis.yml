@@ -1,0 +1,47 @@
+# Travis CI configuration file.
+
+language: php
+
+# Run against all versions of PHP supported by WordPress.
+php:
+    - 5.2
+    - 5.3
+    - 5.4
+    - 5.5
+    - 5.6
+
+# Run against last few versions of WordPress.
+env:
+    - WP_VERSION=3.9
+    - WP_VERSION=4.0
+    - WP_VERSION=4.1
+
+# Use the faster container-based builds.
+sudo: false
+
+matrix:
+    # Run against HHVM and PHP nightly only with the latest version of WordPress.
+    include:
+        - php: hhvm
+          env: WP_VERSION=4.1
+        - php: nightly
+          env: WP_VERSION=4.1
+    # These are experimental, so allow for failures without failing the whole build.
+    allow_failures:
+        - php: hhvm
+        - php: nightly
+    # Let us know as soon as something has exploded.
+    fast_finish: true
+
+before_script:
+    # Set up the WordPress directory.
+    - export WP_TESTS_DIR=/tmp/wordpress/tests/phpunit
+    - mkdir -p /tmp/wordpress/src/wp-admin/includes
+    - mkdir -p /tmp/wordpress/src/wp-includes
+    # Download the base filesystem class.
+    - wget -O /tmp/wordpress/ssrc/wp-admin/includes/class-wp-filesystem-base.php http://develop.svn.wordpress.org/branches/$WP_VERSION/src/wp-admin/includes/class-wp-filesystem-base.php
+    # Download the WP_Error class, it is a dependency of the filesystem classes.
+    - wget -O /tmp/wordpress/src/wp-includes/class-wp-error.php http://develop.svn.wordpress.org/branches/$WP_VERSION/src/wp-includes/class-wp-error.php
+
+script:
+    - phpunit
