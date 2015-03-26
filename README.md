@@ -29,7 +29,6 @@ composer require --dev jdgrimes/wp-filesystem-mock:~0.1
 If you aren't using auto-loading, the first thing you need to do is load the thing:
 
 ```php
-
 		/**
 		 * WordPress's base filesystem API class.
 		 *
@@ -53,7 +52,6 @@ To use the mock filesystem in your tests, just add this code (e.g., in your PHPU
 testcase's `setUp()` method):
 
 ```php
-
 		// Creating a new mock filesystem.
 		// We assign it to a member property so we can access it later.
 		$this->mock_fs = new WP_Mock_Filesystem;
