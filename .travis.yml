@@ -39,7 +39,7 @@ before_script:
     - mkdir -p /tmp/wordpress/src/wp-admin/includes
     - mkdir -p /tmp/wordpress/src/wp-includes
     # Download the base filesystem class.
-    - wget -O /tmp/wordpress/ssrc/wp-admin/includes/class-wp-filesystem-base.php http://develop.svn.wordpress.org/branches/$WP_VERSION/src/wp-admin/includes/class-wp-filesystem-base.php
+    - wget -O /tmp/wordpress/src/wp-admin/includes/class-wp-filesystem-base.php http://develop.svn.wordpress.org/branches/$WP_VERSION/src/wp-admin/includes/class-wp-filesystem-base.php
     # Download the WP_Error class, it is a dependency of the filesystem classes.
     - wget -O /tmp/wordpress/src/wp-includes/class-wp-error.php http://develop.svn.wordpress.org/branches/$WP_VERSION/src/wp-includes/class-wp-error.php
 
