@@ -1,0 +1,23 @@
+{
+  "name": "jdgrimes/wp-filesystem-mock",
+  "description": "Shim for the WordPress filesystem API to use a mock filesystem in PHPUnit tests",
+  "homepage": "https://github.com/JDGrimes/wp-filesystem-mock",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "J.D. Grimes",
+      "email": "jdg@codesymphony.co",
+      "homepage": "http://codesymphony.co",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.2.0"
+  },
+  "autoload": {
+    "files": [
+      "src/wp-filesystem-mock.php",
+      "src/wp-mock-filesystem.php"
+    ]
+  }
+}
