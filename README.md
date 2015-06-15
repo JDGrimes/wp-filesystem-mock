@@ -32,7 +32,7 @@ If you aren't using auto-loading, the first thing you need to do is load the thi
 		/**
 		 * WordPress's base filesystem API class.
 		 *
-		 * We need to make sure this is loaded before we can load the 
+		 * We need to make sure this is loaded before we can load the mock.
 		 */
 		require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php' );
 
@@ -67,6 +67,9 @@ testcase's `setUp()` method):
 		// Tell the shim to start overriding whatever other filesystem access method
 		// is in use.
 		WP_Filesystem_Mock::start();
+	
+		// Set up the $wp_filesystem global, if the code being tested doesn't do this.
+		WP_Filesystem();
 ```
 
 For a full view of what the it can do, check the source.
