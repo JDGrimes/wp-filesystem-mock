@@ -15,9 +15,6 @@
     "php": ">=5.2.0"
   },
   "autoload": {
-    "files": [
-      "src/wp-filesystem-mock.php",
-      "src/wp-mock-filesystem.php"
-    ]
+    "classmap": ["src/"]
   }
 }
