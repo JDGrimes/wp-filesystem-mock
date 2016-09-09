@@ -21,7 +21,7 @@ API).
 You may install with composer:
 
 ```bash
-composer require --dev jdgrimes/wp-filesystem-mock:~0.1
+composer require --dev jdgrimes/wp-filesystem-mock
 ```
 
 ## Usage
