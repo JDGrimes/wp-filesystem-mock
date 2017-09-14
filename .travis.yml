@@ -49,6 +49,7 @@ before_script:
     - wget -O /tmp/wordpress/src/wp-admin/includes/class-wp-filesystem-base.php http://develop.svn.wordpress.org/branches/$WP_VERSION/src/wp-admin/includes/class-wp-filesystem-base.php
     # Download the WP_Error class, it is a dependency of the filesystem classes.
     - wget -O /tmp/wordpress/src/wp-includes/class-wp-error.php http://develop.svn.wordpress.org/branches/$WP_VERSION/src/wp-includes/class-wp-error.php
+    - export PATH="$HOME/.composer/vendor/bin:$PATH"
     - |
       if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
           composer global require "phpunit/phpunit=5.7.*"
