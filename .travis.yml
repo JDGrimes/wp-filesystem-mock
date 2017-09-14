@@ -4,20 +4,18 @@ language: php
 
 # Run against all versions of PHP supported by WordPress.
 php:
-    - 5.2
-    - 5.3
-    - 5.4
-    - 5.5
-    - 5.6
-    - 7.0
-    - 7.1
     - 7.2
+    - 7.1
+    - 7.0
+    - 5.6
+    - 5.5
+    - 5.4
 
 # Run against last few versions of WordPress.
 env:
-    - WP_VERSION=4.6
-    - WP_VERSION=4.7
     - WP_VERSION=4.8
+    - WP_VERSION=4.7
+    - WP_VERSION=4.6
 
 # Use the faster container-based builds.
 sudo: false
@@ -25,6 +23,12 @@ sudo: false
 matrix:
     # Run against HHVM and PHP nightly only with the latest version of WordPress.
     include:
+        - php: 5.2
+          env: WP_VERSION=4.8
+          dist: precise
+        - php: 5.3
+          env: WP_VERSION=4.8
+          dist: precise
         - php: hhvm
           env: WP_VERSION=4.8
         - php: nightly
