@@ -9,12 +9,15 @@ php:
     - 5.4
     - 5.5
     - 5.6
+    - 7.0
+    - 7.1
+    - 7.2
 
 # Run against last few versions of WordPress.
 env:
-    - WP_VERSION=3.9
-    - WP_VERSION=4.0
-    - WP_VERSION=4.1
+    - WP_VERSION=4.6
+    - WP_VERSION=4.7
+    - WP_VERSION=4.8
 
 # Use the faster container-based builds.
 sudo: false
@@ -23,9 +26,9 @@ matrix:
     # Run against HHVM and PHP nightly only with the latest version of WordPress.
     include:
         - php: hhvm
-          env: WP_VERSION=4.1
+          env: WP_VERSION=4.8
         - php: nightly
-          env: WP_VERSION=4.1
+          env: WP_VERSION=4.8
     # These are experimental, so allow for failures without failing the whole build.
     allow_failures:
         - php: hhvm
