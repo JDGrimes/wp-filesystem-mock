@@ -467,6 +467,22 @@ class WP_Filesystem_Mock_Test extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * Test deleting a file with contents.
+	 *
+	 * @since 0.1.2
+	 */
+	public function test_delete_file_with_contents() {
+
+		$this->assertTrue(
+			$this->mock_fs->add_file( '/test.txt', array( 'contents' => 'Testing' ) )
+		);
+
+		$this->assertTrue( $this->fs->delete( '/test.txt' ) );
+
+		$this->assertFalse( $this->fs->exists( '/test.txt' ) );
+	}
+
+	/**
 	 * Test deleting a directory recursively.
 	 *
 	 * @since 0.1.0

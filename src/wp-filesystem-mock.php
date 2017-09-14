@@ -259,7 +259,7 @@ class WP_Filesystem_Mock extends WP_Filesystem_Base {
 
 			$contents = self::$mock->get_file_attr( $file, 'contents' );
 
-			if ( ! empty( $contents ) && ( ! is_object( $contents ) || array() !== (array) $contents ) ) {
+			if ( ! empty( $contents ) && is_object( $contents ) && array() !== (array) $contents ) {
 				return false;
 			}
 		}
